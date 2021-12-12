@@ -103,7 +103,6 @@ export const Profile = styled(FCProfile)`
   }
   &__skill-pc {
     font-size: 15px;
-    font-weight: bold;
     ${({ theme }) => theme.media.sp`
       display: none;
     `}
@@ -113,7 +112,6 @@ export const Profile = styled(FCProfile)`
     ${({ theme }) => theme.media.sp`
       display: inline-block;
       font-size: 14px;
-      font-weight: bold;
     `}
   }
   &__introduction {
