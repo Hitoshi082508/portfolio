@@ -120,9 +120,10 @@ export const Profile = styled(FCProfile)`
     width: 530px;
     margin-top: 35px;
     ${({ theme }) => theme.media.sp`
-      font-size: 14px;
+      font-size: 13px;
       line-height: 24px;
       width: 245px;
+      padding-bottom: 35px;
     `}
   }
 `
