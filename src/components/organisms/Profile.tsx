@@ -14,7 +14,7 @@ export const FCProfile: React.FC<Props> = ({ className }) => {
           <div className={`${className}__text-container`}>
             <h4 className={`${className}__name`}>中澤 仁志</h4>
             <p className={`${className}__english-name`}>Hitoshi Nakazawa</p>
-            <p className={`${className}__skill`}>フロントエンドエンジニア</p>
+            <p className={`${className}__skill`}>Web Application Developer</p>
             <p className={`${className}__skill-pc`}>
               React/Vue/TypeScript/PHP/Next.js/ReactNative/Laravel/WordPress/Firebase...
             </p>
@@ -97,7 +97,7 @@ export const Profile = styled(FCProfile)`
     margin-bottom: 10px;
   }
   &__skill {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
   }
