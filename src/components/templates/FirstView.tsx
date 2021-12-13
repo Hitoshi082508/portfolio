@@ -26,7 +26,7 @@ export const FCFirstView: React.FC<Props> = ({ className }) => {
           <br />
           どんなに良いサービスを作っていたとしても、サービスそのものだけで戦うのは厳しい時代になってきました。
           <br />
-          技術とデザインでこの<span>なんとなく</span>を明確化し<span>必然</span>
+          技術とデザインで顧客の選択を<span>必然</span>
           にする、そんなお手伝いをさせてください。
         </h3>
       </div>
