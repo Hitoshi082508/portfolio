@@ -71,6 +71,9 @@ export const DetailBase = styled(FCDetailBase)`
   padding: 75px 90px 130px 90px;
   background-color: #fff;
   border-radius: 0 0 46px 46px;
+  ${({ theme }) => theme.media.sp`
+    padding: 70px 30px;
+  `}
   &__text {
     margin-bottom: 75px;
   }
