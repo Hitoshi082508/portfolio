@@ -11,12 +11,15 @@
     "format": "prettier --write .",
     "test-all": "npx yarn-run-all lint check-types format lint:fix",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.17",
     "babel-plugin-styled-components": "^2.0.2",
     "contentful": "^9.1.5",
+    "contentful-management": "^7.47.0",
+    "contentful-typescript-codegen": "^3.2.3",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
