@@ -1,4 +1,5 @@
 import * as contentful from 'contentful'
+import { IBlogFields } from '../../@types/generated/contentful'
 
 const config = {
   space: process.env.CTF_SPACE_ID,
@@ -12,7 +13,7 @@ export const createClient = (): contentful.ContentfulClientApi => {
 export const getBlogContents = async () => {
   const client = createClient()
   try {
-    const response: any = await client.getEntries({
+    const response = await client.getEntries<IBlogFields>({
       content_type: process.env.CTF_CONTENT_TYPE_ID,
       order: '-sys.createdAt',
     })
