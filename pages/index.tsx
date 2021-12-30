@@ -7,6 +7,8 @@ import { Profile } from 'src/components/templates/Profile'
 import { Work } from 'src/components/templates/Work'
 import { Contact } from 'src/components/templates/Contact'
 import { Footer } from 'src/components/templates/Footer'
+//types
+import { IBlog } from '../@types/generated/contentful'
 //other
 import { getBlogContents } from 'src/contentful'
 
@@ -19,7 +21,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 type Props = {
   className?: string
-  posts: any[]
+  posts: IBlog[]
 }
 
 const IndexBase: React.FC<Props> = ({ className, posts }) => {
