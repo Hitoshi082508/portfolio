@@ -6,7 +6,7 @@ type Props = {
   text: string
 }
 export const FCSkillText: React.FC<Props> = ({ className, text }) => {
-  return <div className={className}>{`使用スキル / ${text}`}</div>
+  return <div className={className}>{text}</div>
 }
 export const SkillText = styled(FCSkillText)`
   font-size: 15px;

@@ -3,9 +3,11 @@ import styled from 'styled-components'
 import { WorkCard } from 'src/components/organisms/WorkCard'
 import { Title } from 'src/components/atoms/Title'
 import { useRouter } from 'next/router'
+//types
+import { IBlog } from '../../../@types/generated/contentful'
 type Props = {
   className?: string
-  posts: any
+  posts: IBlog[]
 }
 export const FCWork: React.FC<Props> = ({ className, posts }) => {
   const router = useRouter()
@@ -14,7 +16,7 @@ export const FCWork: React.FC<Props> = ({ className, posts }) => {
       <Title text="Work" />
       <div className={`${className}__container`}>
         <div className={`${className}__box`}>
-          {posts.map((post: any, index: number) => {
+          {posts.map((post: IBlog, index: number) => {
             return (
               <WorkCard
                 labelText={post.fields.tag}
