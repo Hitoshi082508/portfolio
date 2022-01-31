@@ -12,7 +12,6 @@ type Props = {
   className?: string
 }
 export const FCContact: React.FC<Props> = ({ className }) => {
-  const router = useRouter()
   const [name, setName] = useState('')
   const [tel, setTel] = useState('')
   const [email, setEmail] = useState('')
