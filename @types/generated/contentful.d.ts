@@ -24,6 +24,9 @@ export interface IBlogFields {
 
   /** text */
   text?: Document | undefined
+
+  /** url */
+  url: string
 }
 
 export interface IBlog extends Entry<IBlogFields> {

@@ -1,11 +1,15 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
-import { useRouter } from 'next/router'
 import React from 'react'
-import { CardText } from 'src/components/molecules/CardText'
-import { getBlogContents } from 'src/contentful'
 import styled from 'styled-components'
+import { useRouter } from 'next/router'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import ReactMarkdown from 'react-markdown'
+//components
 import { ImageList } from 'src/components/molecules/ImageList'
+import { CardText } from 'src/components/molecules/CardText'
+//types
+import { IBlog } from '../@types/generated/contentful'
+//other
+import { getBlogContents } from 'src/contentful'
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await getBlogContents()
@@ -32,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 type Props = {
   className?: string
-  posts: any[]
+  posts: IBlog[]
 }
 
 const FCDetailBase: React.FC<Props> = ({ className, posts }) => {
@@ -47,12 +51,14 @@ const FCDetailBase: React.FC<Props> = ({ className, posts }) => {
     })
     .filter((post) => post)
 
+  console.log(detailPosts[0].fields.text.content[0].content[0].value)
   return (
     <div className={className}>
       <CardText
         labelText={detailPosts[0].fields.tag}
         skillText={detailPosts[0].fields.skill}
         companyName={detailPosts[0].fields.title}
+        url={detailPosts[0].fields.url}
       />
       <ReactMarkdown className={`${className}__text`}>
         {detailPosts[0].fields.text.content[0].content[0].value}
