@@ -1,5 +1,6 @@
 export default function handler(req, res) {
   if (req.method === 'POST') {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const sgMail = require('@sendgrid/mail')
     sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
