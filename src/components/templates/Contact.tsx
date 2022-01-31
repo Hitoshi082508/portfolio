@@ -1,28 +1,82 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { AnswerButton } from '../atoms/AnswerButton'
+import { useRouter } from 'next/router'
 // component
 import { AnswerInput } from '../atoms/AnswerInput'
 import { AnswerTextInput } from '../atoms/AnswerTextArea'
 import { Question } from '../atoms/Question'
 import { Title } from '../atoms/Title'
+import { AnswerButton } from '../atoms/AnswerButton'
 
 type Props = {
   className?: string
 }
 export const FCContact: React.FC<Props> = ({ className }) => {
+  const router = useRouter()
+  const [name, setName] = useState('')
+  const [tel, setTel] = useState('')
+  const [email, setEmail] = useState('')
+  const [text, setText] = useState('')
+  const registerUser = async (event) => {
+    event.preventDefault()
+
+    const res = await fetch('/api/send', {
+      body: JSON.stringify({
+        name: name,
+        tel: tel,
+        email: email,
+        text: text,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+
+    const result = await res.json()
+  }
+
+  const submit = () => {
+    registerUser(event)
+    alert(
+      'お問い合わせありがとうございます。こちらから電話かメールにてご連絡させていただきますのでしばらくお待ちください。',
+    )
+    setEmail('')
+    setName('')
+    setTel('')
+    setText('')
+  }
   return (
     <div className={className}>
       <Title text="Contact" />
-      <form className={`${className}__container`}>
+      <form className={`${className}__container`} onSubmit={submit}>
         <Question text="あなたの名前を教えてください！" />
-        <AnswerInput placeholder="名前を入力する" type="text" />
+        <AnswerInput
+          placeholder="名前を入力する"
+          type="text"
+          onChange={(v: string) => setName(v)}
+          value={name}
+        />
         <Question text="あなたの電話番号を教えてください！" />
-        <AnswerInput placeholder="電話番号を入力する" type="tel" />
+        <AnswerInput
+          placeholder="電話番号を入力する"
+          type="tel"
+          onChange={(v: string) => setTel(v)}
+          value={tel}
+        />
         <Question text="あなたのEmailを教えてください！" />
-        <AnswerInput placeholder="メールアドレスを入力する" type="email" />
+        <AnswerInput
+          placeholder="メールアドレスを入力する"
+          type="email"
+          onChange={(v: string) => setEmail(v)}
+          value={email}
+        />
         <Question text="なんでも気軽にお問い合わせください！" />
-        <AnswerTextInput placeholder="メッセージを入力する" />
+        <AnswerTextInput
+          placeholder="メッセージを入力する"
+          onChange={(v: string) => setText(v)}
+          value={text}
+        />
         <Question text="この内容で送信してもよろしいですか？" />
         <AnswerButton text="メッセージを送信する" />
       </form>
