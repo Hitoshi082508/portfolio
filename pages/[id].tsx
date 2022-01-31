@@ -51,7 +51,6 @@ const FCDetailBase: React.FC<Props> = ({ className, posts }) => {
     })
     .filter((post) => post)
 
-  console.log(detailPosts[0].fields.text.content[0].content[0].value)
   return (
     <div className={className}>
       <CardText
