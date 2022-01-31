@@ -9,7 +9,7 @@ type Props = {
   labelText: string
   companyName: string
   skillText: string
-  url: string
+  url?: string
 }
 export const FCCardText: React.FC<Props> = ({
   className,
