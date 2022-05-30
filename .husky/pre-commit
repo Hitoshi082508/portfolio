@@ -1,4 +1,0 @@
-#!/bin/sh
-."$(dirmname "$0")/_/husky.sh"
-
-yarn lint-staged
